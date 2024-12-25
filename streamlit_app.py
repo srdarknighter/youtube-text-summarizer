@@ -7,7 +7,7 @@ import gdown
 
 @st.cache_resource
 def load_model():
-  url = 'https://drive.google.com/file/d/1-5IVbAXkeY63tdHZrsn4GIj5i8dp9juO/view?usp=drive_link'
+  url = f'https://drive.google.com/file/d/1-5IVbAXkeY63tdHZrsn4GIj5i8dp9juO/view?usp=drive_link'
   output = 'model_weights.pth'
   gdown.download(url, output, quiet=False)
   tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
