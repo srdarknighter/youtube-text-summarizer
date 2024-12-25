@@ -2,7 +2,7 @@ import streamlit as st
 import torch
 import transformers
 import youtube_transcript_api
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
+from transformers import AutoModelForSeq2SeqLM, PegasusTokenizer, pipeline
 import gdown
 
 @st.cache_resource
@@ -10,7 +10,7 @@ def load_model():
   url = 'https://drive.google.com/file/d/1-5IVbAXkeY63tdHZrsn4GIj5i8dp9juO/view?usp=drive_link'
   output = 'model_weights.pth'
   gdown.download(url, output, quiet=False)
-  tokenizer = AutoTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
+  tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
   model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail")
   model.load_state_dict(torch.load(output))
   return model, tokenizer
