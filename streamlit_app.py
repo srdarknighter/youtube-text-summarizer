@@ -10,7 +10,7 @@ def load_model():
   gdown.download(url, output, quiet=False)
   tokenizer = AutoTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
   model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail")
-  model.load_state_dict(torch.load(output)
+  model.load_state_dict(torch.load(output))
   return model, tokenizer
 
 model, tokenizer = load_model()
