@@ -2,3 +2,4 @@ streamlit
 torch
 transformers
 youtube-transcript-api
+gdown
