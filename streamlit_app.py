@@ -1,10 +1,6 @@
-# pip install streamlit
-pip install gdown
 import streamlit as st
 import torch
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
-pip install youtube-transcript-api
-from transformers import pipeline
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
 import gdown
 
 @st.cache_resource
@@ -20,7 +16,6 @@ def load_model():
 model, tokenizer = load_model()
 
 st.title("Youtube Video Summarizer")
-
 
 from youtube_transcript_api import YouTubeTranscriptApi
 video_id = st.text_input("Enter the Youtube URL: ")
