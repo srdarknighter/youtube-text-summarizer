@@ -31,5 +31,5 @@ if video_id and st.button("Summarize"):
   for i in range(0, len(transcript)//1000+1):
     chunk = transcript[i * 1000:(i + 1) * 1000]
     summary = pipe(chunk, max_length=80, min_length=20, num_beams=4)
-    pipe_out += summary + ' '
+    pipe_out += summary[0]['summary_text'] + ' '
   st.write("**Summary: **",pipe_out)
