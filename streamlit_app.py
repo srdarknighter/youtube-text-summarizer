@@ -7,12 +7,12 @@ import gdown
 
 @st.cache_resource
 def load_model():
-  url = f'https://drive.google.com/file/d/1-5IVbAXkeY63tdHZrsn4GIj5i8dp9juO/view?usp=drive_link'
+  url = f'https://drive.google.com/uc?id=1-5IVbAXkeY63tdHZrsn4GIj5i8dp9juO'
   output = 'model_weights.pth'
   gdown.download(url, output, quiet=False)
   tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
   model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail")
-  model.load_state_dict(torch.load(output))
+  model.load_state_dict(torch.load(output, map_location=torch.device('cpu')))
   return model, tokenizer
 
 model, tokenizer = load_model()
