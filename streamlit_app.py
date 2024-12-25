@@ -12,7 +12,7 @@ def load_model():
   gdown.download(url, output, quiet=False)
   tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
   model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail")
-  model.load_state_dict(torch.load(output, map_location=torch.device('cpu')))
+  model.load_state_dict(torch.load(output, map_location=torch.device('cpu'), weight_only=True))
   return model, tokenizer
 
 model, tokenizer = load_model()
