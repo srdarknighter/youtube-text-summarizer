@@ -3,3 +3,5 @@ torch
 transformers
 youtube-transcript-api
 gdown
+tokenizers
+transformers[sentencepiece]
