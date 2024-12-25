@@ -1,4 +1,4 @@
-pip install streamlit
+# pip install streamlit
 pip install gdown
 import streamlit as st
 import torch
