@@ -4,9 +4,9 @@ import transformers
 import youtube_transcript_api
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer, pipeline
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def load_model():
-  model = PegasusForConditionalGeneration.from_pretrained('')
+  model = PegasusForConditionalGeneration.from_pretrained('srdarknighter/model_weights.pth')
   tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
   return model, tokenizer
 
