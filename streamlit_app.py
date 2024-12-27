@@ -2,23 +2,17 @@ import streamlit as st
 import torch
 import transformers
 import youtube_transcript_api
-from transformers import AutoModelForSeq2SeqLM, PegasusTokenizer, pipeline
-import gdown
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer, pipeline
 
-@st.cache_resource
+@st.cache(allow_output_mutation=True)
 def load_model():
-  url = f'https://drive.google.com/uc?id=1-5IVbAXkeY63tdHZrsn4GIj5i8dp9juO'
-  output = 'model_weights.pth'
-  gdown.download(url, output, quiet=False)
+  model = PegasusForConditionalGeneration.from_pretrained('')
   tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-cnn_dailymail")
-  model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-cnn_dailymail")
-  model.load_state_dict(torch.load(output, map_location=torch.device('cpu'), weights_only=True))
   return model, tokenizer
 
 model, tokenizer = load_model()
 
 st.title("Youtube Video Summarizer")
-
 from youtube_transcript_api import YouTubeTranscriptApi
 video_id = st.text_input("Enter the Youtube URL: ")
 video_id = video_id.split("=")[1]
