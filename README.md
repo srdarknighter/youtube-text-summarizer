@@ -14,8 +14,3 @@
 
 Output Sample:
 ![image](https://github.com/user-attachments/assets/c3111ebf-25c7-4a50-8766-d579abc83ce2)
-
-
-Logs also didnt provide any comments on the error faced
-Link: https://youtube-text-summarizer.streamlit.app/
-![image](https://github.com/user-attachments/assets/72c4b617-d4cc-4494-8b59-ceef0066f43d)  ---- Error picture
