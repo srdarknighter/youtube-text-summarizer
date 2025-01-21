@@ -10,10 +10,6 @@
    b. Rouge-2 score saw a sharp dip in performance averaged around 0.27 which is very low. Generally, 0.4 and above indicates that it is unable to capture the overlap of bigrams.
    c. Rouge-L score was 0.34 - satisfactory
    d. Rogue-Lsum score 0.34 - satisfactory
-6. Made a streamlit_app.py + requirements.txt file for a streamlit instance
-7. Able to generate summaries quickly in google colab environment
-8. Faced some issues when hosting it with streamlit (trying to resolve it)
-9. Figured that streamlit has resource limitations, so hosted it with flask locally
 
 
 Output Sample:
